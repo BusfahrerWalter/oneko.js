@@ -3,7 +3,7 @@
 	"version": "1.0.0",
 	"description": "A hacky script I wrote to put a cat on my site.",
 	"license": "MIT",
-	"author": "",
+	"author": "BusfahrerWalter",
 	"type": "module",
 	"scripts": {
 		"build": "vite build",
