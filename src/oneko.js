@@ -1,7 +1,7 @@
 // oneko.js: https://github.com/adryd325/oneko.js
 import { img } from './img';
 
-function neko() {
+function neko(config = {}) {
   const isReducedMotion =
     window.matchMedia(`(prefers-reduced-motion: reduce)`) === true ||
     window.matchMedia(`(prefers-reduced-motion: reduce)`).matches === true;
@@ -10,8 +10,8 @@ function neko() {
 
   const nekoEl = document.createElement("div");
 
-  let nekoPosX = 32;
-  let nekoPosY = 32;
+  let nekoPosX = config.x ?? 32;
+  let nekoPosY = config.y ?? 32;
 
   let mousePosX = 0;
   let mousePosY = 0;
@@ -21,7 +21,7 @@ function neko() {
   let idleAnimation = null;
   let idleAnimationFrame = 0;
 
-  const nekoSpeed = 10;
+  const nekoSpeed = config.speed ?? 10;
   const spriteSets = {
     idle: [[-3, -3]],
     alert: [[-7, -3]],
@@ -88,8 +88,8 @@ function neko() {
   function init() {
     nekoEl.id = "oneko";
     nekoEl.ariaHidden = true;
-    nekoEl.style.width = "32px";
-    nekoEl.style.height = "32px";
+    nekoEl.style.width = config.width ?? "32px";
+    nekoEl.style.height = config.height ?? "32px";
     nekoEl.style.position = "fixed";
     nekoEl.style.pointerEvents = "none";
     nekoEl.style.imageRendering = "pixelated";
@@ -102,6 +102,10 @@ function neko() {
     if (curScript && curScript.dataset.cat) {
       nekoFile = curScript.dataset.cat
     }
+	if (config.img) {
+		nekoFile = config.img;
+	}
+
     nekoEl.style.backgroundImage = `url(${nekoFile})`;
 
     document.body.appendChild(nekoEl);
@@ -198,6 +202,13 @@ function neko() {
   }
 
   function frame() {
+	if (config.pause) {
+		if (config.pause === 'idle') {
+			idle();
+		}
+		return;
+	}
+
     frameCount += 1;
     const diffX = nekoPosX - mousePosX;
     const diffY = nekoPosY - mousePosY;

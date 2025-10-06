@@ -1,0 +1,1 @@
+export const img = new URL('../assets/oneko.gif', import.meta.url).href;

@@ -5,10 +5,10 @@ export default defineConfig({
 	plugins: [
 		viteStaticCopy({
 			targets: [{
-				src: 'oneko.gif',
+				src: 'assets/oneko.gif',
 				dest: '.'
 			}, {
-				src: 'types.d.ts',
+				src: 'src/types.d.ts',
 				dest: '.'
 			}]
 		})
@@ -16,9 +16,9 @@ export default defineConfig({
 	build: {
 		lib: {
 			entry: [
-				'oneko.js',
-				'oneko-ie6.js',
-				'oneko-webring.js'
+				'src/oneko.js',
+				'src/oneko-ie6.js',
+				'src/oneko-webring.js'
 			],
 			formats: ['es', 'cjs']
 		},
