@@ -3,6 +3,7 @@ declare module 'onekojs' {
 	export const img: string;
 
 	export interface NekoConfig {
+		element?: HTMLElement;
 		x?: number;
 		y?: number;
 		width?: number;

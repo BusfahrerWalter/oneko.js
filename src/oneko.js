@@ -8,7 +8,7 @@ function neko(config = {}) {
 
   if (isReducedMotion) return;
 
-  const nekoEl = document.createElement("div");
+  const nekoEl = config.element ?? document.createElement("div");
 
   let nekoPosX = config.x ?? 32;
   let nekoPosY = config.y ?? 32;
@@ -102,13 +102,15 @@ function neko(config = {}) {
     if (curScript && curScript.dataset.cat) {
       nekoFile = curScript.dataset.cat
     }
-	if (config.img) {
-		nekoFile = config.img;
-	}
+    if (config.img) {
+      nekoFile = config.img;
+    }
 
     nekoEl.style.backgroundImage = `url(${nekoFile})`;
 
-    document.body.appendChild(nekoEl);
+    if (!config.element) {
+      document.body.appendChild(nekoEl);
+    }
 
     document.addEventListener("mousemove", function (event) {
       mousePosX = event.clientX;
