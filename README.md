@@ -1,5 +1,8 @@
 # oneko.js 🐾
 
+![Tag](https://img.shields.io/github/v/tag/busfahrerwalter/oneko.js)
+[![Publish Package to npmjs](https://github.com/BusfahrerWalter/oneko.js/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/BusfahrerWalter/oneko.js/actions/workflows/npm-publish.yml)
+
 A tiny JavaScript cat that follows your cursor — now available as an **npm package**!
 
 This is a repackaged and slightly updated version of [adryd325/oneko.js](https://github.com/adryd325/oneko.js) by [@adryd325](https://github.com/adryd325).
