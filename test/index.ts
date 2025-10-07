@@ -1,12 +1,13 @@
 import { neko, img, NekoConfig } from 'onekojs';
 
 const cfg: NekoConfig = {
-	pause: 'idle'
+	pause: 'idle',
+	element: document.querySelector<HTMLElement>('.neko')!
 };
 
 setTimeout(() => {
 	cfg.pause = false;
-}, 5000);
+}, 1000);
 
 console.log(img);
 neko(cfg);
